@@ -53,7 +53,10 @@ class Calendar {
       }
             let now = new Date();
             this.year = (year || now.getFullYear())
-            this.month = (month ||now.getMonth())
+            if(month==undefined)
+               this.month=now.getMonth()
+            else
+               this.month = month
             this.addHead()
             this.addWrongDays()
             this.addDays()
@@ -113,6 +116,7 @@ class Calendar {
             document.querySelector(".headinfo").appendChild(leftButton)
             document.querySelector(".headinfo").appendChild(rightButton)
             document.getElementById("left-button").addEventListener("click", function() {
+               console.log(self.month)
                 if (self.month == 0) {
                     self.month = 11;
                     self.year -= 1;
