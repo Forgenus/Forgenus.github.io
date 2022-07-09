@@ -188,6 +188,7 @@ function bindClicks() {
             if (day.style.backgroundColor == CHECKED) {
                 day.style.backgroundColor = BLOCKED;
                 day.setAttribute("status", "blocked")
+                let a = 1
             }
             if (mem.find(calendar.year,calendar.month,day.textContent)?.project == document.getElementById("projectselect").value) {
                 day.style.backgroundColor = CHECKED
