@@ -1,0 +1,54 @@
+#calendar
+{
+	grid-gap: 10px;
+	position: relative;
+    margin-top: 5%;
+    margin-left: 25%;
+	display: grid;
+	grid-template-columns: repeat(7,1fr);
+	grid-template-rows: repeat(5,1fr);
+	height: 35%;
+	width: 35%;
+    grid-template-areas:
+    "month month month month month month month"
+}
+#calendar div
+{
+	text-align: center;
+	
+	padding: 20px
+}
+.headinfo
+{
+	 grid-area: month;
+
+}
+
+body
+{
+}
+.day-wrong
+{
+	background-color: grey;
+}
+
+.day, .day-wrong
+{
+    
+}
+#left-button
+{
+	position: absolute;
+	left: 150px;
+}
+#right-button
+{
+	position: absolute;
+		right: 150px;
+}
+#counter
+{
+	position: relative;
+	top: 75px;
+	left: 650px;
+}
