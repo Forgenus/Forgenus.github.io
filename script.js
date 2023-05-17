@@ -265,6 +265,20 @@ let eccArr = [];
                         }
                     }
                     console.log(result);
+                    document.getElementById('default-show').style.display = 'block';
+                    document.getElementById('matrix-input-show').style.display = 'none';
+                    map.setCenter(adresses[result[0].index].coords);
+                    for(let i =0;i<result.length;i++){
+                        let coord = adresses[result[i].index].coords;
+                        var placemark = new ymaps.Placemark(coord, {}, {
+                            iconColor: '#FF0000'
+                        });
+                        
+                        map.geoObjects.remove(adresses[result[i].index].placemark);
+                        map.geoObjects.add(placemark);
+                         
+                    }
+
             },1000)
         console.log("end")
 	})
