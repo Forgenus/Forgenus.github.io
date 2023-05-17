@@ -1,22 +1,81 @@
 <html>
  <head>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=042301b4-a518-4aba-8947-15c89b8a9434&lang=ru_RU"
+    type="text/javascript">
+    </script>
  </head>
  <body>
-
     <style>
-        #map{
-            height:60vh;
-            width:70vw;
+        #calculate-button{
+            position:absolute;
+            top:2%;
+            left:50%;
+            transform:translateX(-50%)
         }
+        #map{
+            position:absolute;
+            top:50%;
+            right:50%;
+            transform:translate(50%,-50%);
+            width:700px;
+            height:606px;
+        }
+        [class*="copyrights-pane"] {
+	display: none !important;
+}
+table, th, td {
+  border: 1px solid black;
+  min-width:50px;
+}
+td{
+    text-align: center;
+}
+th{
+    background-color: grey;
+}
+#matrix-input-table{
+    position:absolute;
+            top:50%;
+            right:50%;
+            transform:translate(50%,-50%);
+}
+#confirm-button{
+    position:absolute;
+            top:2%;
+            left:50%;
+            transform:translateX(-50%)
+}
     </style>
+   
 
-    <div id="map">
-
+<div id="default-show">
+    <input type="button" id ='calculate-button'value='Calculate'>
+    <div>
+        <div id="info-column" style = "display: inline-flex;flex-direction: column;">
+            <div id ="input-wrapper">
+                <div >
+                    <label for="delete-input"><input type="text"id="delete-input">
+                        <input type="button"value="Delete" id="delete-marker"><br> Введите индекс точки, которую нужно удалить</label>
+                </div>
+                
+            </div>
+        </div>
+    
     </div>
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
-      defer
-    ></script>
+    
+        <div id="map">
+            <input type="button"value="Add" id="marker-submit">
+        </div>
+</div>
+<div id ="adress-list">
+    
+</div>
+<div id = 'matrix-input-show' style ="display:none;">
+    <input type="button" id ='confirm-button'value='Confirm'>
+    <table id = 'matrix-input-table'>
+        
+    </table>   
+</div>
+   <script src="script.js"></script>
  </body>
 </html>
