@@ -10,13 +10,13 @@
             position:absolute;
             top:2%;
             left:50%;
-            transform:translateX(-50%)
+            transform:translateX(-70%)
         }
         #map{
             position:absolute;
             top:50%;
             right:50%;
-            transform:translate(50%,-50%);
+            transform:translate(70%,-50%);
             width:700px;
             height:606px;
         }
@@ -48,20 +48,34 @@ th{
     </style>
    
 
-<div id="default-show">
+
     <input type="button" id ='calculate-button'value='Calculate'>
     <div>
         <div id="info-column" style = "display: inline-flex;flex-direction: column;">
             <div id ="input-wrapper">
                 <div >
-                    <label for="delete-input"><input type="text"id="delete-input">
-                        <input type="button"value="Delete" id="delete-marker"><br> Введите индекс точки, которую нужно удалить</label>
+                        <input type="button"value="Создать новый путь" id="create-route">
                 </div>
-                
+                <div>
+                    <input type="radio" name="search-mode" id="search-mode-1" value="1" checked>
+                    <label for="search-mode-1">Поиск по кратчайшему наибольшему пути </label>
+                  </div>
+                  <div>
+                    <input type="radio" name="search-mode" id="search-mode-2" value="2">
+                    <label for="search-mode-2">Поиск по наименьшему расстоянию до самой дальней точки</label>
+                  </div>
+                  <div>
+                    <input type="radio" name="search-mode" id="search-mode-3" value="3">
+                    <label for="search-mode-3">Search mode 3</label>
+                  </div>
+                  <div>
+                    <div class ="range-num">Разброс: 0%
+                    </div>
+                  <input type="range"min="0"max="100"value="0"step="1"class = "range">
+                </div>
             </div>
         </div>
     
-    </div>
     
         <div id="map">
             <input type="button"value="Add" id="marker-submit">
@@ -70,11 +84,8 @@ th{
 <div id ="adress-list">
     
 </div>
-<div id = 'matrix-input-show' style ="display:none;">
-    <input type="button" id ='confirm-button'value='Confirm'>
-    <table id = 'matrix-input-table'>
-        
-    </table>   
+<div id ='paths-info'>
+
 </div>
    <script src="script.js"></script>
  </body>
