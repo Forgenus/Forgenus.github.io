@@ -346,7 +346,14 @@
 				}
 			}
 			else{
+				let centerArr= [];
 				console.log('SEARCH-MODE-3');
+				for(let i =0;i<Routes.length;i++){
+				centerArr.push(findCenter(Routes[i]));
+				}
+				console.log(centerArr)
+				let center = findCenter(centerArr);
+				console.log(center);
 			}
 		})
 
@@ -457,6 +464,16 @@
 		}
 		return color;
 	}
+	function addPathHTMLCenter(center){
+		let pathsHTML = document.getElementById('paths-info');
+		let pathDiv = document.createElement('div');
+		pathDiv.className = 'path-div';
+		pathsHTML.insertAdjacentElement('beforeend',pathDiv);
+		let span = document.createElement('span');
+		span.innerText +="Вычисленный центр "+center.name+".";
+		pathDiv.insertAdjacentElement('beforeend',span);
+	let button = createPathShowButton(path,center);
+	}
 	function addPathHTMLShortestOverall(path,length,center){
 		let pathsHTML = document.getElementById('paths-info');
 		let pathDiv = document.createElement('div');
@@ -526,7 +543,23 @@
 	console.log(button)
 	pathDiv.insertAdjacentElement('beforeend',button);
 	}
+	function findCenter(graph){
+		let center;
 
+					let min = 1e6;
+					let distMatrix = createDistMatrix(graph);
+					
+					for(let i =0;i<graph.length;i++){
+						let eccentricity = distMatrix[i].max();
+						if(eccentricity<min){
+							center = graph[i];
+							min = eccentricity;
+						}
+					}
+					
+					return center;
+				
+	}
 	/*
 	let rt;
 
